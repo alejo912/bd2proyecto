@@ -43,10 +43,10 @@
                 <td>{{ $value->codigo }}</td>
                 <td>{{ json_encode($value->gps) }}</td>
                 <td>
-                    @if(array_key_exists('subsidio',$value))
-                        Nombre: {{(json_decode($value->subsidio)['nombre']}}
+                    @if(isset($value->subsidio))
+                        Nombre: {{(json_decode($value->subsidio))->nombre}}
                         <br>
-                        Valor (COP): {{json_decode($value->subsidio)['valor']}}
+                        Valor (COP): {{(json_decode($value->subsidio))->valor}}
                     @endif
                 </td>
                 <td class="flex-lg-row flex-nowrap">
