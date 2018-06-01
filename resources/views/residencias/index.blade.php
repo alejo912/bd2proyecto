@@ -50,8 +50,8 @@
                     @endif
                 </td>
                 <td class="flex-lg-row flex-nowrap">
-                <!--<a class="btn btn-small btn-warning" href="{{ URL::to('instituciones/' . $value->id . '/edit') }}">Editar</a>-->
-                    <form class="d-inline" method="POST" action="{{url('instituciones/' . $value->id )}}"
+                <!--<a class="btn btn-small btn-warning" href="{{ URL::to('residencias/' . $value->id . '/edit') }}">Editar</a>-->
+                    <form class="d-inline" method="POST" action="{{url('residencias/' . $value->id )}}"
                           accept-charset="UTF-8">
                         @csrf
                         <input name="_method" type="hidden" value="DELETE">

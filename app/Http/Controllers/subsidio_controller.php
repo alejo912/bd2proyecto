@@ -100,8 +100,9 @@ class subsidio_controller extends Controller
         $residencias = Residencia::all();
 
         foreach ($residencias as $res) {
-            if (json_decode($res->subsidio)['_id'] == $ins->_id) {
-                $res->subsidio->delete();
+            if (json_decode($res->subsidio)->_id == $ins->_id) {
+                unset($res->subsidio);
+                $res->save();
             }
         }
 
