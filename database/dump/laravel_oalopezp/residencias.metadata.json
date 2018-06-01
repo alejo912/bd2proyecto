@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"laravel_oalopezp.residencias"},{"v":2,"unique":true,"key":{"codigo":1},"name":"codigo_1","ns":"laravel_oalopezp.residencias"},{"v":2,"key":{"ubicacion":"2dsphere"},"name":"ubicacion_2dsphere","ns":"laravel_oalopezp.residencias","2dsphereIndexVersion":3}],"uuid":"cfb580f2debb4318a9a7b667b3304a9b"}
