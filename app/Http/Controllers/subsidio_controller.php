@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Residencia;
 use App\Subsidio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -96,6 +97,14 @@ class subsidio_controller extends Controller
     public function destroy($id)
     {
         $ins = Subsidio::find($id);
+        $residencias = Residencia::all();
+
+        foreach ($residencias as $res) {
+            if (json_decode($res->subsidio)['_id'] == $ins->_id) {
+                $res->subsidio->delete();
+            }
+        }
+
         $ins->delete();
 
         // redirect
