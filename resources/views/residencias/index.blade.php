@@ -42,13 +42,13 @@
                 <td>{{ ($value->tipo==0)?'Propia':'Alquilada'}}</td>
                 <td>{{ $value->codigo }}</td>
                 <td>{{ json_encode($value->gps) }}</td>
-                @if(property_exists($value,'subsidio'))
-                    <td>
+                <td>
+                    @if(array_key_exists('subsidio',$value))
                         Nombre: {{json_decode($value->subsidio)['nombre']}}
                         <br>
                         Valor (COP): {{json_decode($value->subsidio)['valor']}}
-                    </td>
-                @endif
+                    @endif
+                </td>
                 <td class="flex-lg-row flex-nowrap">
                 <!--<a class="btn btn-small btn-warning" href="{{ URL::to('instituciones/' . $value->id . '/edit') }}">Editar</a>-->
                     <form class="d-inline" method="POST" action="{{url('instituciones/' . $value->id )}}"

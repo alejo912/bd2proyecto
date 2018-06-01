@@ -50,10 +50,9 @@ class residencia_controller extends Controller
         if ($request->subsidio !== -1) {
             $get_subsidio = Subsidio::find($request->subsidio);
             if ($get_subsidio->estrato == $request->estrato) {
-                $residencia->subsidio = json_encode($get_subsidio);
+                $residencia->subsidio = $get_subsidio;
             }
         }
-        $residencia->subsidio = $request->subsidio;
         $residencia->save();
 
         return redirect('residencias')->with('status', 'Residencia Creada!');
