@@ -20,4 +20,5 @@ Route::resource('bancos', 'banco_controller');
 Route::resource('departamentos', 'departamento_controller');
 Route::resource('personas', 'persona_controller');
 Route::resource('residencias', 'residencia_controller');
+Route::resource('subsidios', 'subsidio_controller');
 

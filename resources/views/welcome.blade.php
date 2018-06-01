@@ -6,9 +6,9 @@
     </div>
     <br>
     <div class="flex-center flex-column flex-padding align-items-center">
-        <a href="/personas">
-            <button class="btn btn-info btn-lg">
-                Personas
+        <a href="/subsidios">
+            <button class="btn btn-danger btn-lg">
+                Subsidios
             </button>
         </a>
         <a href="/residencias">
@@ -29,6 +29,11 @@
         <a href="/instituciones">
             <button class="btn btn-info btn-lg">
                 Instituciones
+            </button>
+        </a>
+        <a href="/personas">
+            <button class="btn btn-info btn-lg">
+                Personas
             </button>
         </a>
     </div>
