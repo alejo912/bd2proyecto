@@ -19,7 +19,6 @@ class institucion_controller extends Controller
     {
         $ins = Institucion::all();
         return view('instituciones.index')->with('instituciones', $ins);
-        //
     }
 
     /**

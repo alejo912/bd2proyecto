@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Banco;
 use Illuminate\Http\Request;
 
 class banco_controller extends Controller
@@ -13,7 +14,8 @@ class banco_controller extends Controller
      */
     public function index()
     {
-        //
+        $banco = Banco::all();
+        return view('bancos.index')->with('bancos', $banco);
     }
 
     /**
@@ -23,24 +25,29 @@ class banco_controller extends Controller
      */
     public function create()
     {
-        //
+        return view('bancos.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $banco = new Banco();
+        $banco->nombre = $request->nombre;
+        $banco->tipo = $request->tipo;
+        $banco->save();
+
+        return redirect('bancos')->with('status', 'Banco Creado!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -51,7 +58,7 @@ class banco_controller extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -62,8 +69,8 @@ class banco_controller extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -74,11 +81,16 @@ class banco_controller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        $banco = Banco::find($id);
+        $banco->delete();
+
+        // redirect
+        Session::flash('message', 'Banco borrado!');
+        return Redirect::to('bancos');
     }
 }

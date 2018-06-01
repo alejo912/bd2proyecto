@@ -49,6 +49,10 @@
             position: relative;
         }
 
+        .text-right {
+            padding-bottom: 10px;
+        }
+
         .top-right {
             position: absolute;
             right: 10px;
@@ -93,6 +97,15 @@
             width: 50px;
             height: 50px;
         }
+
+        .flex-padding > a {
+            padding: 5px;
+        }
+
+        .flex-padding > a > button {
+            width: 300px;
+        }
+
     </style>
 </head>
 <body>

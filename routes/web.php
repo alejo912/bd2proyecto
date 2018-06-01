@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 Route::resource('instituciones', 'institucion_controller');
-Route::resource('bancos', 'bancos_controller');
-Route::resource('departamentos', 'departamentos_controller');
-Route::resource('personas', 'personas_controller');
-Route::resource('residencias', 'residencias_controller');
+Route::resource('bancos', 'banco_controller');
+Route::resource('departamentos', 'departamento_controller');
+Route::resource('personas', 'persona_controller');
+Route::resource('residencias', 'residencia_controller');
 
