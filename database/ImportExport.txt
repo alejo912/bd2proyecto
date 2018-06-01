@@ -1,0 +1,2 @@
+mongodump -d laravel_oalopezp
+mongorestore -d laravel_oalopezp --host 127.0.0.1 --dir ./dump/laravel_oalopezp --drop
