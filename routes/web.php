@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('instituciones', 'institucion_controller');
+Route::resource('bancos', 'bancos_controller');
+Route::resource('departamentos', 'departamentos_controller');
+Route::resource('personas', 'personas_controller');
+Route::resource('residencias', 'residencias_controller');
+

@@ -9,6 +9,8 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css"
+          rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -25,7 +27,7 @@
     <style>
         html, body {
             background-color: #fff;
-            color: #636b6f;
+            color: #3d4448;
             font-family: 'Raleway', sans-serif;
             font-weight: 100;
             height: 100vh;
@@ -37,7 +39,8 @@
         }
 
         .flex-center {
-            align-items: center;
+            padding-top: 20px;
+            align-items: flex-start;
             display: flex;
             justify-content: center;
         }
@@ -53,15 +56,19 @@
         }
 
         .content {
-            text-align: center;
+            text-align: justify;
         }
 
         .title {
             font-size: 84px;
         }
 
+        label {
+            font-weight: bold;
+        }
+
         .links > a {
-            color: #636b6f;
+            color: #353c40;
             padding: 0 25px;
             font-size: 12px;
             font-weight: 600;
@@ -72,6 +79,19 @@
 
         .m-b-md {
             margin-bottom: 30px;
+        }
+
+        .top-nav {
+            display: flex;
+            flex-flow: row;
+            position: absolute;
+            top: 5px;
+            right: 10px
+        }
+
+        .top-nav > div {
+            width: 50px;
+            height: 50px;
         }
     </style>
 </head>
@@ -90,6 +110,29 @@
 
     <div class="content">
         @yield('body')
+
+        @if (Session::has('message'))
+            <br>
+            <div class="alert alert-info">{{ Session::get('message') }}</div>
+        @endif
+
+        @if (session('status'))
+            <br>
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <br>
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 </div>
 </body>

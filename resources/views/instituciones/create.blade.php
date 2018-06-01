@@ -1,9 +1,14 @@
 @extends('main')
 
 @section('body')
-    <div style="position:absolute;top:5px;right: 10px;width: 50px;height: 50px">
+    <div class="top-nav">
+        <a href="{{url('/instituciones')}}">
+            <button class="rounded-circle btn btn-danger h-100">
+                <span class="oi oi-chevron-left"></span>
+            </button>
+        </a>
         <a href="/">
-            <button class="rounded-circle btn btn-danger w-100 h-100">
+            <button class="rounded-circle btn btn-danger h-100">
                 <span class="oi oi-home"></span>
             </button>
         </a>
