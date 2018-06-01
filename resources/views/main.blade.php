@@ -29,7 +29,7 @@
             background-color: #fff;
             color: #3d4448;
             font-family: 'Raleway', sans-serif;
-            font-weight: 550;
+            font-weight: 600;
             height: 100vh;
             margin: 0;
         }
