@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Residencia;
 use App\Subsidio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class residencia_controller extends Controller
 {
