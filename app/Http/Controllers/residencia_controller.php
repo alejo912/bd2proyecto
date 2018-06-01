@@ -27,7 +27,8 @@ class residencia_controller extends Controller
      */
     public function create()
     {
-        return view('residencias.create');
+        $subsidios = Subsidio::all();
+        return view('residencias.create')->with('subsidios', $subsidios);
     }
 
     /**
