@@ -97,19 +97,21 @@ class subsidio_controller extends Controller
     public function destroy($id)
     {
         $ins = Subsidio::find($id);
+
         $residencias = Residencia::all();
 
         foreach ($residencias as $res) {
-            if (json_decode($res->subsidio)->_id == $ins->_id) {
-                unset($res->subsidio);
-                $res->update();
+            if (isset($res->subsidio)) {
+                if (json_decode($res->subsidio)->_id == $ins->_id) {
+                    $res2 = Residencia::where('_id', '=', $res->_id)->update(['subsidio' => null]);
+                }
             }
         }
 
         $ins->delete();
 
         // redirect
-        Session::flash('message', 'Subsidio borrada!');
+        Session::flash('message', 'Subsidio borrado!');
         return redirect('subsidios');
     }
 }

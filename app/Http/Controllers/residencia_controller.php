@@ -106,6 +106,6 @@ class residencia_controller extends Controller
 
         // redirect
         Session::flash('message', 'Residencia borrada!');
-        return Redirect::to('residencias');
+        return redirect('residencias');
     }
 }
