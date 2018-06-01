@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Residencia;
+use App\Subsidio;
 use Illuminate\Http\Request;
 
 class residencia_controller extends Controller
@@ -14,8 +15,9 @@ class residencia_controller extends Controller
      */
     public function index()
     {
-        $ins = Residencia::all();
-        return view('residencias.index')->with('residencias', $ins);
+        $residencias = Residencia::all();
+        $subsidios = Subsidio::all();
+        return view('residencias.index', compact('residencias', 'subsidios'));
     }
 
     /**
@@ -44,6 +46,13 @@ class residencia_controller extends Controller
         $residencia->tipo = $request->tipo;
         $residencia->codigo = $request->codigo;
         $residencia->gps = [$request->latitud, $request->longitud];
+        if ($request->subsidio !== -1) {
+            $get_subsidio = Subsidio::find($request->subsidio);
+            if ($get_subsidio->estrato == $request->estrato) {
+                $residencia->subsidio = json_encode($get_subsidio);
+            }
+        }
+        $residencia->subsidio = $request->subsidio;
         $residencia->save();
 
         return redirect('residencias')->with('status', 'Residencia Creada!');

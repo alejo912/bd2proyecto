@@ -61,6 +61,15 @@
             <input type="text" name="longitud" class="form-control">
         </div>
         <div class="form-group">
+            <label for="subsidio">Subsidio: </label>
+            <select name="subsidio" class="form-control">
+                <option value="-1">Ninguno</option>
+                @foreach ($subsidios as $sub)
+                    <option value="{{$sub->_id}}">{{$sub->nombre}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
             <button type="submit" class="btn btn-primary" value="Submit">Guardar</button>
         </div>
 

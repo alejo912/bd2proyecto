@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Subsidio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class subsidio_controller extends Controller
 {
@@ -71,7 +72,7 @@ class subsidio_controller extends Controller
 
         // redirect
         return View::make('subsidios.edit')
-            ->with('subsidio', $ins);
+            ->with('subsidios', $ins);
     }
 
     /**
@@ -99,6 +100,6 @@ class subsidio_controller extends Controller
 
         // redirect
         Session::flash('message', 'Subsidio borrada!');
-        return Redirect::to('Subsidios');
+        return redirect('subsidios');
     }
 }

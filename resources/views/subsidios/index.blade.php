@@ -29,7 +29,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($instituciones as $key => $value)
+        @foreach($subsidios as $key => $value)
             <tr>
                 <td>{{ $value->codigo }}</td>
                 <td>{{ $value->nombre }}</td>
